@@ -24,7 +24,7 @@ const initialState = {
   highscore: 0,
   secondsRemaing: null,
 };
-function redcer(state, action) {
+function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
@@ -77,7 +77,7 @@ export default function App() {
   const [
     { questions, status, index, answer, points, highscore, secondsRemaing },
     dispatch,
-  ] = useReducer(redcer, initialState);
+  ] = useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
